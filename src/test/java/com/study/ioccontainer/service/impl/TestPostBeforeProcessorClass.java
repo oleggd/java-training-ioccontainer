@@ -37,15 +37,6 @@ public class TestPostBeforeProcessorClass implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String id) throws RuntimeException {
-        /*for (Method method : bean.getClass().getMethods()) {
-            if ("setName".equals(method.getName())) {
-                try {
-                    method.invoke(bean,"AfterInit");
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    throw new InvalidBeanProcessing("Error invoking bean method "+ method.getName() + " for className " + bean.getClass().getName());
-                }
-            }
-        }*/
         return bean;//"Full bean";
     }
 }

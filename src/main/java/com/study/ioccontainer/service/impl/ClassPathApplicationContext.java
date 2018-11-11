@@ -47,15 +47,6 @@ public class ClassPathApplicationContext implements ApplicationContext {
         beanList = beanPostProcessRefactor(beanList,"After");
     }
 
-    static Boolean implementsInterface(Object object, String  InterfaceName){
-        for (Class interfaces : object.getClass().getInterfaces()) {
-            if (interfaces.getName().equals(InterfaceName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     List<BeanDefinition> beanFactoryProcessing(List<BeanDefinition> beanDefinitionList) throws ClassNotFoundException {
 
         List<Bean> beanFactoryList = new ArrayList<>();
@@ -66,7 +57,6 @@ public class ClassPathApplicationContext implements ApplicationContext {
             Class beanFactoryClass = Class.forName(beanDefinition.getClassName());
 
             // find system classes for bean definition procesing
-            //if (implementsInterface(beanFactoryClass,"beanFactoryPostProcessor"))
             if (BeanFactoryPostProcessor.class.isAssignableFrom(beanFactoryClass))
             {
                 try {
@@ -294,10 +284,8 @@ public class ClassPathApplicationContext implements ApplicationContext {
             Method setter;
             for (Map.Entry<String, String> entry : valuesDependencies.entrySet()) {
                 // get setter by name = set + beanDefinition.name
-                //setterName = "set" + entry.getKey().substring(0, 1).toUpperCase() + entry.getKey().substring(1);
                 Class<?> clazz = beanObject.getClass();
                 try {
-                    //setter = clazz.getMethod(setterName, entry.getValue().getClass());
                     setter = getMethod(clazz,"set", entry.getKey());
                     // call setter for current bean object with beanDefinition.value
                     setter.invoke(beanObject, entry.getValue());
@@ -335,9 +323,6 @@ public class ClassPathApplicationContext implements ApplicationContext {
                 Method setter;
 
                 for (Map.Entry<String, String> entry : refDependencies.entrySet()) {
-
-
-                    //setterName = "set" + entry.getKey().substring(0, 1).toUpperCase() + entry.getKey().substring(1);
                     Class<?> clazz = bean.getClass();
                     try {
                         // get setter for current bean by name = set + beanDefinition.name

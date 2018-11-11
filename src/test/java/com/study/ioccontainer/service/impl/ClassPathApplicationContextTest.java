@@ -28,9 +28,6 @@ public class ClassPathApplicationContextTest {
         Object bean = classPathApplicationContext.getBean("testProductID");
         assertTrue(bean.getClass().getName().equals("com.study.ioccontainer.service.impl.TestProductClass"));
 
-        //bean = null;
-        //bean = classPathApplicationContext.getBean("testUserID"); // postConstruct
-        //assertTrue(bean.getClass().getName().equals("com.study.ioccontainer.service.impl.TestUserClass"));
         bean = null;
         bean = classPathApplicationContext.getBean("testRoleID");
         assertTrue(bean.getClass().getName().equals("com.study.ioccontainer.service.impl.TestRoleClass"));
@@ -44,9 +41,6 @@ public class ClassPathApplicationContextTest {
         Object bean = classPathApplicationContext.getBean(TestProductClass.class);
         assertTrue(bean != null);
 
-        //bean = null;
-        //bean = classPathApplicationContext.getBean(TestUserClass.class);
-        //assertTrue(bean != null);
         bean = null;
         bean = classPathApplicationContext.getBean(TestRoleClass.class);
         assertTrue(bean != null);
@@ -59,9 +53,6 @@ public class ClassPathApplicationContextTest {
         Object bean = classPathApplicationContext.getBean("testProductID", TestProductClass.class);
         assertTrue(bean != null);
 
-        //bean = null;
-        //bean = classPathApplicationContext.getBean("testUserID", TestUserClass.class);
-        //assertTrue(bean != null);
         bean = null;
         bean = classPathApplicationContext.getBean("testRoleID", TestRoleClass.class);
         assertTrue(bean != null);
@@ -73,7 +64,6 @@ public class ClassPathApplicationContextTest {
         String testFileName = "textCorrectBeanProcess.xml";
         ClassPathApplicationContext classPathApplicationContext = new ClassPathApplicationContext(testFileName);
 
-        //private List<Bean> constructBeans(List<BeanDefinition> beanDefinitionList)
         BeanDefinitionReader beanDefinitionReader;
         List<BeanDefinition> beanDefinitionList;
         List<Bean>           beanList;
