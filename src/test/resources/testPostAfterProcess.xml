@@ -1,0 +1,20 @@
+<beans>
+    <bean id="testBean0" class="com.study.ioccontainer.service.impl.TestBean0Class">
+        <property name="id" value="0"></property>
+        <property name="name" value="Bean0"></property>
+    </bean>
+    <bean id="testBean1" class="com.study.ioccontainer.service.impl.TestBean1Class">
+        <property name="id" value="1"></property>
+        <property name="name" value="Bean1"></property>
+    </bean>
+    <bean id="testBean2" class="com.study.ioccontainer.service.impl.TestBean2Class">
+        <property name="id" value="2"></property>
+        <property name="value" ref="testBean1"></property>
+    </bean>
+
+    <bean id="testBeanPostProcessor" class="com.study.ioccontainer.service.impl.TestPostAfterProcessorClass">
+        <property name="id"   value="1"></property>
+        <property name="name" value="testTestProcessor"></property>
+    </bean>
+
+</beans>

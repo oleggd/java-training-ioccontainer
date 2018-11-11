@@ -1,0 +1,14 @@
+<beans>
+    <bean id="testProductID" class="com.study.ioccontainer.service.impl.TestProductClass">
+        <property name="id" value="1"></property>
+        <property name="name" value="Product1"></property>
+    </bean>
+    <bean id="testUserID" class="com.study.ioccontainer.service.impl.TestUserClass">
+        <property name="id" value="1"></property>
+        <property name="name" value="user1"></property>
+    </bean>
+    <bean id="testRoleID" class="com.study.ioccontainer.service.impl.TestRoleClass">
+        <property name="id"   value="1"></property>
+        <property name="role" ref="testUserID"></property>
+    </bean>
+</beans>
